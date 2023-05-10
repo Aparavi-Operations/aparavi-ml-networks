@@ -1,0 +1,2 @@
+# Aparavi Machine Learning Network Repository
+This repository hosts the deep learning network architectures utilized within the Aparavi platform, allowing for increased transparency and the potential for additional training of pre-existing models when necessary.
