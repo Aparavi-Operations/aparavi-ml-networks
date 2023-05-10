@@ -62,12 +62,9 @@ class ScriptRecogNet(tf.keras.layers.Layer):
                                         activation='relu6', input_shape=input_shape)(input)
         inp_ops = tf.keras.layers.MaxPool2D(pool_size=(3, 3), strides=(2, 2), padding='same')(inp_ops)
         inp_ops = self.inception_module(inp_ops, d1=32, d2=64)
-        print("Inception module output_shpe for d1=32, d2=64: ", inp_ops.shape)
         inp_ops = tf.keras.layers.MaxPool2D(pool_size=(3, 3), strides=(2, 2), padding='same')(inp_ops)
         inp_ops = self.inception_module(inp_ops, d1=48, d2=96)
-        print("Inception module output_shpe for d1=48, d2=96: ", inp_ops.shape)
         inp_ops = self.inception_module(inp_ops, d1=64, d2=128)
-        print("Inception module output_shpe for d1=64, d2=128: ", inp_ops.shape)
 
         # Fully Connected layers
         inp_ops = tf.keras.layers.Conv2D(filters=512, kernel_size=(10, 1), strides=(10, 1), padding='same', activation='relu6')(inp_ops)
